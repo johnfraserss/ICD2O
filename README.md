@@ -1,2 +1,5 @@
 # ICD2O
-ICD2O Course for John Fraser SS 
+
+### See the [wiki](https://github.com/johnfraserss/ICD2O/wiki) for more information.
+
+![ICD2O OLGs](https://github.com/johnfraserss/ICS2O/wiki/images/ICD2O.jpg)
