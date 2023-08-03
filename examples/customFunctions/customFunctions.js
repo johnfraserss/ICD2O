@@ -1,5 +1,5 @@
 /*
- * Example of using custom variables
+ * Example of using custom functions based on the custom variables work completed earlier
  * For information on different variable types,
  * scroll to the bottom of this file.
  */
@@ -20,7 +20,8 @@ function draw() {
   ellipse(width/2, height/2, diameter, diameter);
   diameter = diameter + 1; //increase the diameter by 1 every frame of draw()
   
-  const info = "Diameter = " + diameter;  // this variable gets creates every time the draw loop occurs, so const works here.
+  //Calling the circumference function to display the value on-screen
+  const info = "Circumference = " + circumference(diameter/2);  // this variable gets creates every time the draw loop occurs, so const works here.
   text(info, 20, 20); //display information about the diameter value in the top left corner
 
 }
@@ -30,38 +31,45 @@ function mousePressed() {
   diameter = 5;
 }
 
+// Calculates the circumference of a circle given the radius
+function circumference(radius) {
+  if (isNaN(radius)) {
+    return NaN;
+  }
+  return Math.PI * radius * radius;
+}
+
 
 /*  
 
-Variable Naming
---------------
+Functions
+---------
+Functions are used to encapsulate and organize **reusable** code that is used to perform a single action.  We've have been using a functions quite often throughout previous work (math functions, `console.log()`, string functions, etc.)
 
-The convention for variable naming is as follows:
- - give variables a meaningful name (i.e. diameter, centre, fillColour, etc.)
-   - bad examples of names are: a, b, st, amsl, iwejwlk, aa, ab, abc, goat, fish, etc.
- - variables that have multiple "words" in them should follow either camelCase or pot_hole_case style
-   - examples include: centreOfTheTriangle, triangleFillColour (camel case)
-   -                 : center_of_the_triagle, triangle_fill_colour (pot hole case)
-   - whichever method you choose, you have to be consistent in your style choice
+Functions have a different structure from anything we've done previously, and we'll take this on step-by-step.  The basic setup of a function is as follows:
 
-Variable types
---------------
+Structure
+---------
+// Description of the function
+function functionName( parameter1, parameter2, ... ) {
+    // body of the function
+    return expression
+}
 
-There are multiple variable types, as noted below, that we will be using in this class:
+The above concepts break down as follows:
+* `function` tells the computer you are going to be creating a function
+* `functionName` is the name of the function.  The name of the function should be clear on its purpose.
+* `parameter#` are different parameters that the function accepts.  These parameters are used inside the function, just as you would use variables.  This section can be left blank as well (i.e. `function functionName() {`).
+* `// Description ` this area is used to describe the purpose of the function.  We will go further in-depth on this in the ICS3U course.
+* `body` this area is where the function does whatever the function is supposed to do (ideally a short task).
+* `return` this line will return back to where you called the function, or return a value to wherever the function is called.
 
- - float (real numbers including decimals)
- - int (whole numbers, both positive and negative)
- - char (a single character - a character can be a letter, number, or symbol on the keyboard)
- - string (a string of characters)
-  
- In the example above we use string and float.  The conditionals/if statement example
- will include the 'char' type and the 'int' type.
+Before being able to use a function, it must be defined.  As such, you will need to define functions before using them.
 
-Let vs. Const
----------------
-
-Let is a variable that you know will (or can) change over time
-Const is a variable type that has a constant value, and it's value cannot change once created
+Notes
+-----
+- Any variables that are *created* inside a function **only exist inside that function.**
+- functions should only use parameters to receive information, and not directly use `keyCode` or `button`
 
 
 */
