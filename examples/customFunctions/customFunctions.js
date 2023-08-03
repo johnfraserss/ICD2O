@@ -20,8 +20,8 @@ function draw() {
   ellipse(width/2, height/2, diameter, diameter);
   diameter = diameter + 1; //increase the diameter by 1 every frame of draw()
   
-  //Calling the circumference function to display the value on-screen
-  const info = "Circumference = " + circumference(diameter/2);  // this variable gets creates every time the draw loop occurs, so const works here.
+  //Calling the area function to display the value on-screen
+  const info = "Area = " + area(diameter/2);  // this variable gets creates every time the draw loop occurs, so const works here.
   text(info, 20, 20); //display information about the diameter value in the top left corner
 
 }
@@ -31,8 +31,8 @@ function mousePressed() {
   diameter = 5;
 }
 
-// Calculates the circumference of a circle given the radius
-function circumference(radius) {
+// Calculates the area of a circle given the radius
+function area(radius) {
   if (isNaN(radius)) {
     return NaN;
   }
